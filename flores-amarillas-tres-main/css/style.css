@@ -1,0 +1,114 @@
+/* ====== RESET BÁSICO ====== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+:root{
+  --bg1:#0f0b1a;        /* morado profundo */
+  --bg2:#1b1130;        /* morado oscuro */
+  --accent:#ff69b4;     /* rosa */
+  --accent-2:#ffd1e8;   /* rosa claro */
+  --text:#faf7ff;       /* texto principal */
+  --muted:#c9b9d9;      /* texto secundario */
+  --shadow: rgba(0,0,0,.35);
+}
+body{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:var(--text);
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+  background:
+    radial-gradient(1100px 800px at 80% -10%, #2a1748 0%, transparent 60%),
+    radial-gradient(1000px 800px at 10% 110%, #301a54 0%, transparent 60%),
+    linear-gradient(160deg, var(--bg1), var(--bg2));
+  overflow:hidden;
+  padding: 3rem 1rem 4rem;
+}
+
+/* ====== SALUDO “Hola, Sofis!” ====== */
+.greetings{
+  display:flex;
+  gap: .15em;
+  font-weight: 800;
+  letter-spacing: .02em;
+  font-size: clamp(2rem, 8vw, 3.4rem);
+  text-shadow: 0 10px 30px var(--shadow);
+  margin-bottom: .6rem;
+}
+.greetings span{
+  display:inline-block;
+  transform: translateY(16px);
+  opacity: 0;
+  animation: rise .7s cubic-bezier(.2,.8,.2,1) forwards;
+}
+/* pequeño “delay” escalonado para cada letra */
+.greetings span:nth-child(1){ animation-delay:.02s }
+.greetings span:nth-child(2){ animation-delay:.08s }
+.greetings span:nth-child(3){ animation-delay:.14s }
+.greetings span:nth-child(4){ animation-delay:.20s }
+.greetings span:nth-child(5){ animation-delay:.26s }
+.greetings span:nth-child(6){ animation-delay:.32s }
+.greetings span:nth-child(7){ animation-delay:.38s }
+.greetings span:nth-child(8){ animation-delay:.44s }
+.greetings span:nth-child(9){ animation-delay:.50s }
+.greetings span:nth-child(10){ animation-delay:.56s }
+.greetings span:nth-child(11){ animation-delay:.62s }
+.greetings span:nth-child(12){ animation-delay:.68s }
+
+@keyframes rise{
+  to{ transform:none; opacity:1 }
+}
+
+/* ====== DESCRIPCIÓN ====== */
+.description{
+  margin: .2rem 0 1.4rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 3.5vw, 1.15rem);
+}
+
+/* ====== BOTÓN ====== */
+.button{ margin-top: .25rem; }
+.botones{
+  border: 0;
+  border-radius: 14px;
+  padding: .95rem 1.4rem;
+  background: linear-gradient(135deg, var(--accent), #ff82c5);
+  box-shadow: 0 14px 30px rgba(255,105,180,.35);
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.botones:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(255,105,180,.45);
+  filter: saturate(1.05);
+}
+.botones:active{ transform: translateY(0) }
+.button a{
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+
+/* ====== DETALLE SUAVE DE CORAZONES ====== */
+body::after{
+  content:"";
+  position:fixed; inset:-10vh 0 0; pointer-events:none;
+  background:
+    radial-gradient(12px 12px at 20% 90%, rgba(255,255,255,.12) 20%, transparent 22%) repeat,
+    radial-gradient(10px 10px at 80% 15%, rgba(255,255,255,.08) 20%, transparent 22%) repeat;
+  background-size: 180px 180px, 200px 200px;
+  mix-blend-mode: overlay; opacity:.35;
+}
+
+/* ====== REDUCCIÓN DE MOVIMIENTO ====== */
+@media (prefers-reduced-motion: reduce){
+  .greetings span{ animation: none; opacity: 1; transform: none; }
+  .botones{ transition: none; }
+}
+
+/* ====== RESPONSIVE TWEAKS ====== */
+@media (max-width: 360px){
+  .greetings{ font-size: 1.8rem; }
+}
