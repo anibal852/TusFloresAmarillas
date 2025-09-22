@@ -1666,7 +1666,7 @@ h1 {
   z-index:9999;                   /* por encima de flores, brillos y night */
   pointer-events:none;            /* no bloquea clics/gestos en la escena */
   text-align:center;
-  color:#fff;
+  color:#b3ff00;
   line-height:1.35;
   letter-spacing:.08em;
   text-shadow:
@@ -1705,7 +1705,7 @@ h1 {
 
 /* si quieres que el h1 siga amarillo pero legible, activa este bloque: */
 .titulo{
-  color:#9b9b9b;                                  /* amarillo cálido */
+  color:#ffffff;                                   /* amarillo cálido */
   -webkit-text-stroke: 1px rgba(0,0,0,.35);
   text-shadow:
     0 2px 6px rgba(0,0,0,.6),
